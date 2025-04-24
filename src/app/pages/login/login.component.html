@@ -1,0 +1,64 @@
+<div class="container-fluid bg-white">
+    <div class="d-flex justify-content-center align-items-center vh-100">
+      <div class="card shadow-lg rounded d-flex flex-row overflow-hidden" style="max-width: 1000px; width: 100%; height: 600px">
+        
+        <!-- Left Image Section -->
+        <div class="col-md-6 p-0">
+          <img
+            src="https://img.freepik.com/free-vector/login-concept-illustration_114360-739.jpg?t=st=1745520232~exp=1745523832~hmac=9c08b645292d7a87b08fdce2d67aa76362cbdb8db08a25562e5c2788eedc0dee&w=826"
+            alt="Login Banner"
+            class="img-fluid h-100 w-100"
+            style="object-fit: cover"
+          />
+        </div>
+    
+        <!-- Right Login Form Section -->
+        <div class="col-md-6 p-4 mt-5" style="overflow-y: auto">
+          <div class="text-center mb-3">
+            <h4 class="text-success">Sign In</h4>
+          </div>
+    
+          <form (ngSubmit)="onLogin()">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                placeholder="Enter your email"
+                [(ngModel)]="loginObj.UserName"
+                name="UserName"
+                required
+              />
+            </div>
+    
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                id="password"
+                class="form-control"
+                placeholder="Enter your password"
+                [(ngModel)]="loginObj.Password"
+                name="Password"
+                required
+              />
+            </div>
+    
+            <!-- Center Sign In Button -->
+            <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-success btn-lg mb-3">Sign In</button>
+            </div>
+  
+            <!-- Additional Text and Register Button -->
+            <div class="text-center">
+              <small>Don't have an account?</small>
+              <br />
+              <a routerLink="/register" class="btn btn-outline-success btn-sm">Register</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

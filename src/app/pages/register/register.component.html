@@ -1,0 +1,217 @@
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+  <div class="card shadow-lg rounded d-flex flex-row overflow-hidden" style="max-width: 1000px; width: 100%; height: 600px">
+    <div class="col-md-6 p-0">
+      <img
+        src="https://img.freepik.com/free-vector/posts-concept-illustration_114360-194.jpg?t=st=1745070669~exp=1745074269~hmac=4e1461593ba1f648d8db023ce6cd0fa20f865a340e2d66aa0c8a56fafeaadb5d&w=826"
+        alt="Registration Banner"
+        class="img-fluid h-100 w-100"
+        style="object-fit: cover"
+      />
+    </div>
+    <div class="col-md-6 p-4" style="overflow-y: auto">
+      <div class="text-center mb-3">
+        <h4 class="text-success">User Registration</h4>
+      </div>
+      <form #regForm="ngForm" (ngSubmit)="onSubmit()">
+        <!-- Role Selection -->
+        <div class="mb-3">
+          <label for="role" class="form-label">Role</label>
+          <select
+            id="role"
+            name="role"
+            class="form-select"
+            [(ngModel)]="role"
+            required
+          >
+            <option value="" disabled selected>Select Role</option>
+            <option value="applicant">Applicant</option>
+            <option value="recruiter">Recruiter</option>
+          </select>
+        </div>
+
+        <!-- Applicant Fields -->
+        <div *ngIf="role === 'applicant'">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="name" class="form-label">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-control"
+                [(ngModel)]="applicant.name"
+                required
+                placeholder="Enter your full name"
+              />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="email" class="form-label">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-control"
+                [(ngModel)]="applicant.email"
+                required
+                placeholder="Enter your email"
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="form-control"
+                [(ngModel)]="applicant.password"
+                required
+                placeholder="Create a password"
+              />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="qualification" class="form-label">Qualification</label>
+              <input
+                type="text"
+                id="qualification"
+                name="qualification"
+                class="form-control"
+                [(ngModel)]="applicant.qualification"
+                placeholder="e.g. B.Sc Computer Science"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="startDate" class="form-label">Start Date</label>
+              <input
+                type="month"
+                id="startDate"
+                name="startDate"
+                class="form-control"
+                [(ngModel)]="applicant.qualificationStartDate"
+                required
+              />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="endDate" class="form-label">End Date</label>
+              <input
+                type="month"
+                id="endDate"
+                name="endDate"
+                class="form-control"
+                [(ngModel)]="applicant.qualificationEndDate"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="skills" class="form-label">Skills</label>
+            <input
+              type="text"
+              id="skills"
+              name="skills"
+              class="form-control"
+              [(ngModel)]="applicant.skills"
+              placeholder="e.g. JavaScript, Angular"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="resume" class="form-label">Upload Resume</label>
+            <input
+              type="file"
+              id="resume"
+              name="resume"
+              class="form-control"
+              accept=".pdf, .doc, .docx"
+              (change)="onFileChange($event)"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Recruiter Fields -->
+        <div *ngIf="role === 'recruiter'">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="recruiterName" class="form-label">Full Name</label>
+              <input
+                type="text"
+                id="recruiterName"
+                name="recruiterName"
+                class="form-control"
+                [(ngModel)]="recruiter.name"
+                required
+                placeholder="Enter your full name"
+              />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="recruiterEmail" class="form-label">Email Address</label>
+              <input
+                type="email"
+                id="recruiterEmail"
+                name="recruiterEmail"
+                class="form-control"
+                [(ngModel)]="recruiter.email"
+                required
+                placeholder="Enter your email"
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="recruiterPassword" class="form-label">Password</label>
+              <input
+                type="password"
+                id="recruiterPassword"
+                name="recruiterPassword"
+                class="form-control"
+                [(ngModel)]="recruiter.password"
+                required
+                placeholder="Create a password"
+              />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="companyName" class="form-label">Company Name</label>
+              <input
+                type="text"
+                id="companyName"
+                name="companyName"
+                class="form-control"
+                [(ngModel)]="recruiter.companyName"
+                required
+                placeholder="Enter company name"
+              />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="companyBio" class="form-label">Company Bio</label>
+            <textarea
+              id="companyBio"
+              name="companyBio"
+              class="form-control"
+              [(ngModel)]="recruiter.companyBio"
+              rows="3"
+              placeholder="Write something about your company"
+              required
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-end mt-3">
+          <button class="btn btn-success btn-lg mb-1" [disabled]="!regForm.valid">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
