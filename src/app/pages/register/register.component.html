@@ -1,8 +1,11 @@
 <div class="d-flex justify-content-center align-items-center vh-100 bg-light">
-  <div class="card shadow-lg rounded d-flex flex-row overflow-hidden" style="max-width: 1000px; width: 100%; height: 600px">
+  <div
+    class="card shadow-lg rounded d-flex flex-row overflow-hidden"
+    style="max-width: 1000px; width: 100%; height: 600px"
+  >
     <div class="col-md-6 p-0">
       <img
-        src="https://img.freepik.com/free-vector/posts-concept-illustration_114360-194.jpg?t=st=1745070669~exp=1745074269~hmac=4e1461593ba1f648d8db023ce6cd0fa20f865a340e2d66aa0c8a56fafeaadb5d&w=826"
+        src="assets/register_img.jpg"
         alt="Registration Banner"
         class="img-fluid h-100 w-100"
         style="object-fit: cover"
@@ -72,7 +75,9 @@
               />
             </div>
             <div class="col-md-6 mb-3">
-              <label for="qualification" class="form-label">Qualification</label>
+              <label for="qualification" class="form-label"
+                >Qualification</label
+              >
               <input
                 type="text"
                 id="qualification"
@@ -153,7 +158,9 @@
               />
             </div>
             <div class="col-md-6 mb-3">
-              <label for="recruiterEmail" class="form-label">Email Address</label>
+              <label for="recruiterEmail" class="form-label"
+                >Email Address</label
+              >
               <input
                 type="email"
                 id="recruiterEmail"
@@ -209,7 +216,7 @@
 
         <!-- Submit Button -->
         <div class="text-end mt-3">
-          <button class="btn btn-success btn-lg mb-1" [disabled]="!regForm.valid">Register</button>
+          <button class="btn btn-success btn-lg mb-1">Register</button>
         </div>
       </form>
     </div>
